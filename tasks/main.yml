@@ -3,6 +3,7 @@
   ansible.builtin.package:
     name: "{{ dotfiles_packages }}"
     state: "{{ dotfiles_packages_state }}"
+  become: true
 
 - name: Clone dotfiles repository.
   ansible.builtin.git:
@@ -10,12 +11,12 @@
     dest: "{{ dotfiles_repo_local_destination }}"
     version: "{{ dotfiles_repo_version }}"
 
-- name: Use stow to install dotfiles.
+- name: Use stow to install dotfiles (with --adopt flag).
   ansible.builtin.command:
     cmd: stow --adopt .
     chdir: "{{ dotfiles_repo_local_destination }}"
 
-- name: Clone dotfiles repository.
+- name: Reset local repository.
   ansible.builtin.git:
     repo: "{{ dotfiles_repo_url }}"
     dest: "{{ dotfiles_repo_local_destination }}"
