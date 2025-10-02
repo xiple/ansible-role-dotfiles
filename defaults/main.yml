@@ -2,3 +2,10 @@
 dotfiles_repo_url: "https://github.com/xiple/dotfiles.git"
 dotfiles_repo_version: main
 dotfiles_repo_local_destination: "~/dotfiles"
+
+dotfiles_packages:
+  - git
+  - stow
+
+dotfiles_packages_state: present
+
