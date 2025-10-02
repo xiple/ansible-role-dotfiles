@@ -1,21 +1,23 @@
+---
 - name: Install packages for dotfiles configuration.
   ansible.builtin.package:
     name: "{{ dotfiles_packages }}"
     state: "{{ dotfiles_packages_state }}"
 
-- name: Clone xiple's dotfiles repository.
+- name: Clone dotfiles repository.
   ansible.builtin.git:
-    repo: 'https://github.com/xiple/dotfiles'
-    dest: ~/dotfiles
+    repo: "{{ dotfiles_repo_url }}"
+    dest: "{{ dotfiles_repo_local_destination }}"
+    version: "{{ dotfiles_repo_version }}"
 
 - name: Use stow to install dotfiles.
   ansible.builtin.command:
     cmd: stow --adopt .
-    chdir: ~/dotfiles
+    chdir: "{{ dotfiles_repo_local_destination }}"
 
-- name: Reset local repo and update.
+- name: Clone dotfiles repository.
   ansible.builtin.git:
-    repo: 'https://github.com/xiple/dotfiles'
-    dest: ~/dotfiles
-    version: main
+    repo: "{{ dotfiles_repo_url }}"
+    dest: "{{ dotfiles_repo_local_destination }}"
+    version: "{{ dotfiles_repo_version }}"
     force: yes

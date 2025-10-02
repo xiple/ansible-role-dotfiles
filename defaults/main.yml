@@ -1,0 +1,4 @@
+---
+dotfiles_repo_url: "https://github.com/xiple/dotfiles.git"
+dotfiles_repo_version: main
+dotfiles_repo_local_destination: "~/dotfiles"
