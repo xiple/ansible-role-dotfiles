@@ -1,0 +1,27 @@
+galaxy_info:
+  author: xiple
+  description: Dotfiles installation on Unix/Linux.
+
+  license: license MIT
+
+  min_ansible_version: 2.1
+
+  platforms:
+    - name: GenericUNIX
+      versions:
+        - all
+        - any
+    - name: GenericBSD
+      versions:
+        - all
+        - any
+    - name: GenericLinux
+      versions:
+        - all
+        - any
+  
+  galaxy_tags:
+    - dotfiles
+    - configuration
+
+dependencies: []
