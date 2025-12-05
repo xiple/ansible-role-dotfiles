@@ -21,4 +21,4 @@
     repo: "{{ dotfiles_repo_url }}"
     dest: "{{ dotfiles_repo_local_destination }}"
     version: "{{ dotfiles_repo_version }}"
-    force: yes
+    force: true
