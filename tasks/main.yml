@@ -15,6 +15,7 @@
   ansible.builtin.command:
     cmd: stow --adopt .
     chdir: "{{ dotfiles_repo_local_destination }}"
+  changed_when: false
 
 - name: Reset local repository.
   ansible.builtin.git:
