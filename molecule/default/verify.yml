@@ -7,17 +7,12 @@
       ansible.builtin.package_facts:
         manager: auto
 
-    - name: Fail if distribution GPG keys package is not installed
+    - name: Fail if git is not installed
       ansible.builtin.fail:
-        msg: "{{ gpg_keys_package }} package is not installed"
-      when: gpg_keys_package not in ansible_facts.packages
+        msg: "git package is not installed"
+      when: "'git' not in ansible_facts.packages"
 
-    - name: Install a package from the free repository
-      ansible.builtin.package:
-        name: rpmfusion-free-release-tainted
-        state: present
-
-    - name: Install a package from the nonfree repository
-      ansible.builtin.package:
-        name: rpmfusion-nonfree-release-tainted
-        state: present
+    - name: Fail if stow is not installed
+      ansible.builtin.fail:
+        msg: "stow package is not installed"
+      when: "'stow' not in ansible_facts.packages"
