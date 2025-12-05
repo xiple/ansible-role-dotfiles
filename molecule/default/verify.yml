@@ -2,6 +2,7 @@
 - name: Verify
   hosts: molecule
   gather_facts: true
+  vars_files: ../../defaults/main.yml
   tasks:
     - name: Gather the package facts
       ansible.builtin.package_facts:
@@ -16,3 +17,13 @@
       ansible.builtin.fail:
         msg: "stow package is not installed"
       when: "'stow' not in ansible_facts.packages"
+
+    - name: Get information on 'dotfiles' checked out directory
+      ansible.builtin.stat:
+        path: "{{ dotfiles_repo_local_destination }}"
+      register: dotfiles_dir
+
+    - name: Fail if dotfiles directory is not checked out
+      ansible.builtin.fail:
+        msg: "{{ dotfiles_repo_local_destination }} directory does not exist"
+      when: not dotfiles_dir.stat.exists
