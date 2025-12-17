@@ -1,6 +1,8 @@
 Ansible role: dotfiles
 =========
 
+[![CI](https://github.com/xiple/ansible-role-dotfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/xiple/ansible-role-dotfiles/actions/workflows/ci.yml)
+
 An ansible role that installs dotfiles. This role ensure `git` and `stow` package are installed.
 
 Requirements
