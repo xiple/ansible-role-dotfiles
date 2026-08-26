@@ -24,10 +24,7 @@ dotfiles_repo_local_destination: "~/dotfiles"
 Supported distributions
 ----------------
 
-This role has been been developed and tested on the following distributions :
-
-- Fedora 43
-- Fedora 42
+This role has been developed and tested mainly for Fedora 44. Due to its simplicity, it should also work on other Linux distribution.
 
 Example Playbook
 ----------------
