@@ -11,6 +11,7 @@
     path: "~/{{ item }}"
   loop: "{{ dotfiles_to_backup }}"
   register: dotfile_stats
+  when: backup_dir_file.changed
 
 - name: Copy existing dotfiles to backup directory
   ansible.builtin.copy:
