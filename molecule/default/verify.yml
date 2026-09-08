@@ -7,6 +7,16 @@
     - name: Gather the package facts
       ansible.builtin.package_facts:
         manager: auto
+    
+    - name: Check dotfiles backup directory
+      ansible.builtin.stat:
+        path: "{{ dotfiles_backup_dir }}"
+      register: dotfile_backup_dir_stats
+
+    - name: Fail if dotfiles backup directory does not exist
+      ansible.builtin.fail:
+        msg: "{{ dotfiles_backup_dir }} does not exist"
+      when: not dotfile_backup_dir_stats.stat.exists
 
     - name: Fail if git is not installed
       ansible.builtin.fail:
