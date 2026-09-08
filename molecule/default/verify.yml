@@ -7,7 +7,7 @@
     - name: Gather the package facts
       ansible.builtin.package_facts:
         manager: auto
-    
+
     - name: Check dotfiles backup directory
       ansible.builtin.stat:
         path: "{{ dotfiles_backup_dir }}"
