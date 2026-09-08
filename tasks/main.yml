@@ -7,6 +7,7 @@
         path: "{{ dotfiles_backup_dir }}"
         state: directory
         mode: "0700"
+      register: backup_dir_file
 
     - name: Check which dotfiles actually exist
       ansible.builtin.stat:
@@ -21,7 +22,9 @@
         remote_src: true
         mode: preserve
       loop: "{{ dotfile_stats.results }}"
-      when: item.stat.exists
+      when:
+        - item.stat.exists
+        - backup_dir_file.changed
       loop_control:
         label: "{{ item.item }}"
 
