@@ -21,6 +21,22 @@ dotfiles_repo_version: main
 dotfiles_repo_local_destination: "~/dotfiles"
 ```
 
+Configure dotfiles backup. Defaults are :
+
+```yaml
+dotfiles_backup_dir: "~/dotfiles_backup"
+dotfiles_to_backup:
+  - .bashrc
+  - .bash_profile
+  - .bash_logout
+```
+
+In case you don't want backup :
+
+```yaml
+dotfiles_manage_backup: true
+```
+
 Supported distributions
 ----------------
 
