@@ -1,4 +1,10 @@
 ---
+dotfiles_backup_dir: "~/dotfiles_backup"
+dotfiles_to_backup:
+  - .bashrc
+  - .bash_profile
+  - .bash_logout
+
 dotfiles_repo_url: "https://github.com/xiple/dotfiles.git"
 dotfiles_repo_version: main
 dotfiles_repo_local_destination: "~/dotfiles"
