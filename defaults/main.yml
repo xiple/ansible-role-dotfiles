@@ -4,6 +4,7 @@ dotfiles_to_backup:
   - .bashrc
   - .bash_profile
   - .bash_logout
+dotfiles_manage_backup: true
 
 dotfiles_repo_url: "https://github.com/xiple/dotfiles.git"
 dotfiles_repo_version: main
